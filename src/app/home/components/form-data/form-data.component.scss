@@ -1,0 +1,63 @@
+@import "~src/themes/mixins/functions";
+@import "~src/themes/mixins/variables";
+@import "~src/themes/mixins/breakpoints";
+
+.main-content {
+    text-align: center;
+    border: 1px solid gray;
+    padding: 10px 5px;
+    .form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        .inputs,
+        .sliders {
+            flex: 1 0 auto;
+        }
+        .label-input {
+            display: flex;
+            margin: 10px 0;
+            justify-content: center;
+            align-items: center;
+            .input {
+                display: flex;
+                flex-direction: column;
+                input {
+                    padding: 5px;
+                    outline: none;
+                    border-width: 1px;
+                    border-radius: 3px;
+                    box-shadow: none;
+                    &:focus {
+                        border-color: var(--primary-color);
+                    }
+                }
+                .input-error {
+                    font-family: Arial;
+                    text-align: left;
+                    color: red;
+                    font-size: 10px;
+                    padding: 3px;
+                }
+            }
+            label {
+                margin-right: 10px;
+                width: 70px;
+            }
+        }
+    }
+    .buttons {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 auto;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .main-content {
+        .buttons {
+            width: 100%;
+        }
+    }
+}

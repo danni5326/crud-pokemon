@@ -1,0 +1,25 @@
+<div class="data-content" [ngClass]="{'show': homeProvider.showFormData}">
+    <table border="solid" margin="0" sacing="0">
+        <tr>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Ataque</th>
+            <th>Defensa</th>
+            <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let pokemon of pokemons">
+            <td>{{pokemon.name}}</td>
+            <td class="center"><img
+                    [src]="pokemon.image">
+            </td>
+            <td>{{pokemon.attack}}</td>
+            <td>{{pokemon.defense}}</td>
+            <td class="center">
+                <div class="action-content">
+                    <i class="pointer fa fa-edit"></i>
+                    <i class="pointer fa fa-trash"></i>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="main-content" *ngIf="homeProvider.showFormData">
+    <h2>Nuevo Pokémon</h2>
+    <form class="form" [formGroup]="pokemonForm">
+        <div class="inputs">
+            <div class="label-input">
+                <label for="inpt_name">Nombre:</label>
+                <div class="input">
+                    <input #inpt_name id="name" type="text" autofocus formControlName="name">
+                    <span class="input-error" *ngIf="hasErrorControl('name', 'required')">Campo
+                        <strong>requerido</strong></span>
+                </div>
+            </div>
+            <div class="label-input">
+                <label for="inpt_image">Imagen:</label>
+                <div class="input">
+                    <input #inpt_image type="text" placeholder="url" formControlName="image">
+                    <span class="input-error" *ngIf="hasErrorControl('image', 'required')">Campo
+                        <strong>requerido</strong></span>
+                    <span class="input-error" *ngIf="hasErrorControl('image', 'pattern')">Campo
+                        <strong>inválido</strong>. Debe ingresar una url</span>
+                    </div>
+            </div>
+        </div>
+        <div class="sliders">
+            <div class="label-input">
+                <label for="inpt_attack">Ataque:</label>
+                <input #inpt_attack type="range" min="0" max="600" formControlName="attack">
+            </div>
+            <div class="label-input">
+                <label for="inpt_defense">Defensa:</label>
+                <input #inpt_defense type="range" min="0" max="600" formControlName="defense">
+            </div>
+        </div>
+    </form>
+    <div class="buttons">
+        <button [disabled]="pokemonForm.invalid" (click)="onSubmit()"><i class="fa fa-save"></i>Guardar</button>
+        <button (click)="onCancel()"><i class="fa fa-times"></i>Cancelar</button>
+    </div>
+</div>
