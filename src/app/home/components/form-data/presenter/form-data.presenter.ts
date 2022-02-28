@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PokemonModel } from '../../../../shared/models/pokemon.model';
 import { PokemonService } from '../../../../shared/services/pokemon.service';
-import { HomeProvider } from '../../../data-propvider/home.provider';
+import { HomeProvider } from '../../../data-provider/home.provider';
 import { FormDataView } from '../view/form-data.view';
 
 @Injectable()
@@ -64,11 +64,6 @@ export class FormDataPresenter {
     wasTouched(name: string) {
         let control = this.view.pokemonForm.controls[name];
         return control.dirty || control.touched;
-    }
-
-    cancel() {
-        this.homeProvider.clearSelectedPokemon();
-        this.homeProvider.changeShowFormData(false);
     }
 
     destroy() {

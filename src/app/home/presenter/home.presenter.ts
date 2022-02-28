@@ -26,8 +26,4 @@ export class HomePresenter {
             this.view.pokemons = this.view.originalData.filter((pokemon) => pokemon.name?.toLowerCase().includes(filter.toLowerCase()));
         }
     }
-
-    onDestroy(): void {
-        this.view.pokemon$?.unsubscribe();
-    }
 }

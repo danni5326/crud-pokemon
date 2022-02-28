@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PokemonModel } from '../../../../shared/models/pokemon.model';
-import { HomeProvider } from '../../../data-propvider/home.provider';
+import { HomeProvider } from '../../../data-provider/home.provider';
 import { TableDataView } from '../view/table-data.view';
 import { EMPTY, Observable } from 'rxjs';
 import { PokemonService } from '../../../../shared/services/pokemon.service';

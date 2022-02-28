@@ -27,7 +27,7 @@ export class HomeComponent extends HomeView implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-      this.homePresenter.onDestroy();
+      this.pokemon$?.unsubscribe();
   }
 
 }

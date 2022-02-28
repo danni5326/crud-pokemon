@@ -35,7 +35,7 @@ export class FormDataComponent extends FormDataView implements OnInit, OnDestroy
   }
 
   onCancel() {
-    this.formDataPresenter.cancel();
+    this.formDataPresenter.completeSubmit();
   }
 
   ngOnDestroy(): void {

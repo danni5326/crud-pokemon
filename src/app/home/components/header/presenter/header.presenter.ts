@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HomeProvider } from '../../../data-propvider/home.provider';
+import { HomeProvider } from '../../../data-provider/home.provider';
 import { HeaderView } from '../view/header.view';
 
 @Injectable()

@@ -7,15 +7,15 @@ export class HomeProvider {
     private showFormData = new BehaviorSubject<boolean>(false);
     selectedPokemon?: PokemonModel;
 
-    public getShowFormData(): Observable<boolean> {
+    getShowFormData(): Observable<boolean> {
         return this.showFormData.asObservable();
     }
 
-    public changeShowFormData(value: boolean): void {
+    changeShowFormData(value: boolean): void {
         this.showFormData.next(value);
     }
 
-    public isShowFormData(): boolean {
+    isShowFormData(): boolean {
         return this.showFormData.value;
     }
 
