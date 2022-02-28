@@ -4,6 +4,7 @@ import { PokemonModel } from '../../shared/models/pokemon.model';
 
 export abstract class HomeView extends View {
     pokemons!: PokemonModel[];
+    originalData: PokemonModel[];
 
     pokemon$?: Subscription;
 }

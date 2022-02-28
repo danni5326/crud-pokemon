@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HomeProvider } from '../../data-propvider/home.provider';
-import { FormDataView } from './view/form-data.view';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormDataPresenter } from './presenter/form-data.presenter';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormDataView } from './view/form-data.view';
 
 @Component({
   selector: 'ds-form-data',
   templateUrl: './form-data.component.html',
   styleUrls: ['./form-data.component.scss']
 })
-export class FormDataComponent extends FormDataView implements OnInit {
-  @Input() show: boolean = false;
+export class FormDataComponent extends FormDataView implements OnInit, OnDestroy {
+  @Output() submit = new EventEmitter<boolean>();
 
   constructor(
-    public homeProvider: HomeProvider,
     private formDataPresenter: FormDataPresenter,
   ) {
     super();
@@ -21,7 +18,7 @@ export class FormDataComponent extends FormDataView implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pokemonForm = this.formDataPresenter.initFormGroup();
+    this.formDataPresenter.init();
   }
 
   hasErrorControl(name: string, error: string): boolean {
@@ -29,12 +26,20 @@ export class FormDataComponent extends FormDataView implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.pokemonForm);
-
+    this.formDataPresenter.save().subscribe({
+      next: () => {
+        this.formDataPresenter.completeSubmit();
+        this.submit.emit(true);
+      }
+    });
   }
 
   onCancel() {
     this.formDataPresenter.cancel();
+  }
+
+  ngOnDestroy(): void {
+    this.formDataPresenter.destroy();
   }
 
 }

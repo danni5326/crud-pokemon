@@ -1,4 +1,4 @@
-<div class="data-content" [ngClass]="{'show': homeProvider.showFormData}">
+<div class="data-content" [ngClass]="{'show': showData}">
     <table border="solid" margin="0" sacing="0">
         <tr>
             <th>Nombre</th>
@@ -16,10 +16,13 @@
             <td>{{pokemon.defense}}</td>
             <td class="center">
                 <div class="action-content">
-                    <i class="pointer fa fa-edit"></i>
-                    <i class="pointer fa fa-trash"></i>
+                    <i class="pointer fa fa-edit" (click)="onSelected(pokemon)"></i>
+                    <i class="pointer fa fa-trash" (click)="onDelete(pokemon)"></i>
                 </div>
             </td>
+        </tr>
+        <tr *ngIf="pokemons.length <= 0">
+            <td colspan="5" class="center"><h4>Sin Registros</h4></td>
         </tr>
     </table>
 </div>

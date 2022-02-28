@@ -1,5 +1,5 @@
 <div class="main-content">
-    <ds-header></ds-header>
-    <ds-table-data [pokemons]="pokemons"></ds-table-data>
-    <ds-form-data></ds-form-data>
+    <ds-header (search)="filterData($event)"></ds-header>
+    <ds-table-data [pokemons]="pokemons" (delete)="updateData()"></ds-table-data>
+    <ds-form-data (submit)="updateData()"></ds-form-data>
 </div>

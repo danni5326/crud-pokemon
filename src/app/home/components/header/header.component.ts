@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { HeaderView } from './view/header.view';
 import { HeaderPresenter } from './presenter/header.presenter';
 
@@ -8,6 +8,7 @@ import { HeaderPresenter } from './presenter/header.presenter';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends HeaderView implements OnInit {
+  @Output() search = new EventEmitter<string>();
 
   constructor(private headerPresenter: HeaderPresenter) { 
     super();
@@ -15,6 +16,10 @@ export class HeaderComponent extends HeaderView implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  searchSubmit() {
+    this.search.emit(this.searchValue);
   }
 
   showFormData() {

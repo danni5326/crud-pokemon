@@ -40,9 +40,17 @@
                     padding: 3px;
                 }
             }
+            .suffix-range {
+                margin-left: 5px;
+                font-weight: 500;
+            }
             label {
                 margin-right: 10px;
                 width: 70px;
+            }
+            select {
+                padding: 4px;
+                min-width: 100px;
             }
         }
     }

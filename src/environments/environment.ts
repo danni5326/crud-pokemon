@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://pokemon-pichincha.herokuapp.com',
+  idAuthor: 10,
 };
 
 /*

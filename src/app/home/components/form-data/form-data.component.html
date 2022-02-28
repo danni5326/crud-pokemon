@@ -1,5 +1,5 @@
-<div class="main-content" *ngIf="homeProvider.showFormData">
-    <h2>Nuevo Pokémon</h2>
+<div class="main-content" *ngIf="showData">
+    <h2>{{pokemonForm.controls['id']?.value ? 'Actualizar' : 'Nuevo'}} Pokémon</h2>
     <form class="form" [formGroup]="pokemonForm">
         <div class="inputs">
             <div class="label-input">
@@ -20,15 +20,32 @@
                         <strong>inválido</strong>. Debe ingresar una url</span>
                     </div>
             </div>
+            <div class="label-input">
+                <label for="inpt_image">Tipo:</label>
+                <select formControlName="type">
+                    <option value="fire">Fuego</option>
+                    <option value="water">Agua</option>
+                    <option value="normal">Normal</option>
+                    <option value="bug">Bicho</option>
+                    <option value="poison">Veneno</option>
+                </select>
+            </div>
         </div>
         <div class="sliders">
             <div class="label-input">
                 <label for="inpt_attack">Ataque:</label>
-                <input #inpt_attack type="range" min="0" max="600" formControlName="attack">
+                <input #inpt_attack type="range" min="0" max="100" formControlName="attack">
+                <span class="suffix-range">{{pokemonForm.controls['attack']?.value}}</span>
             </div>
             <div class="label-input">
                 <label for="inpt_defense">Defensa:</label>
-                <input #inpt_defense type="range" min="0" max="600" formControlName="defense">
+                <input #inpt_defense type="range" min="0" max="100" formControlName="defense">
+                <span class="suffix-range">{{pokemonForm.controls['defense']?.value}}</span>
+            </div>
+            <div class="label-input">
+                <label for="inpt_hp">HP:</label>
+                <input #inpt_hp type="range" min="0" max="100" formControlName="hp">
+                <span class="suffix-range">{{pokemonForm.controls['hp']?.value}}</span>
             </div>
         </div>
     </form>

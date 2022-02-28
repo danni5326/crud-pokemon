@@ -8,7 +8,8 @@ import { HomeProvider } from './data-propvider/home.provider';
 import { HomePresenter } from './presenter/home.presenter';
 import { HeaderPresenter } from './components/header/presenter/header.presenter';
 import { FormDataPresenter } from './components/form-data/presenter/form-data.presenter';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableDataPresenter } from './components/table-data/presenter/table-data.presenter';
 
 
 
@@ -20,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormDataComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ReactiveFormsModule,
   ],
@@ -28,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomePresenter,
     HeaderPresenter,
     FormDataPresenter,
+    TableDataPresenter,
   ]
 })
 export class HomeModule { }

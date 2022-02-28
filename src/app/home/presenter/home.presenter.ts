@@ -11,9 +11,20 @@ export class HomePresenter {
 
     getPokemons() {
         this.view.pokemon$ = this.pokemonService.getPokemons().subscribe({
-            next: (resp) => this.view.pokemons = resp.sort((a, b) => a.id ? b.id ? b.id - a.id : 1 : -1),
+            next: (resp) => {
+                this.view.pokemons = resp.sort((a, b) => a.id ? b.id ? b.id - a.id : 1 : -1);
+                this.view.originalData = this.view.pokemons;
+            },
             error: (error) => console.log(error),
         });
+    }
+
+    filterData(filter: string) {
+        if (!filter) {
+            this.view.pokemons = this.view.originalData;
+        } else {
+            this.view.pokemons = this.view.originalData.filter((pokemon) => pokemon.name?.toLowerCase().includes(filter.toLowerCase()));
+        }
     }
 
     onDestroy(): void {

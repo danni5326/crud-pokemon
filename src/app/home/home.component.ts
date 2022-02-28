@@ -18,6 +18,14 @@ export class HomeComponent extends HomeView implements OnInit, OnDestroy {
     this.homePresenter.getPokemons();
   }
 
+  updateData() {
+    this.homePresenter.getPokemons();
+  }
+
+  filterData(value: string) {
+    this.homePresenter.filterData(value);
+  }
+
   ngOnDestroy(): void {
       this.homePresenter.onDestroy();
   }

@@ -10,6 +10,7 @@ export class HeaderPresenter {
     }
 
     newPokemonEvent() {
-        this.homeProvider.showFormData = true;
+        this.homeProvider.clearSelectedPokemon();
+        this.homeProvider.changeShowFormData(true);
     }
 }

@@ -1,9 +1,7 @@
-import { FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { View } from 'src/app/core/mvp/view';
 
-export class FormDataView implements View {
-    pokemonForm: FormGroup;
+export class TableDataView implements View {
     showData: boolean = false;
     showData$: Subscription;
 }
